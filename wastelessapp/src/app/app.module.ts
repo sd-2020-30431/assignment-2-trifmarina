@@ -12,13 +12,15 @@ import {ConfigService} from "./services/config.service";
 import { LoginComponent} from "./login/login.component";
 import { ToastrModule } from 'ngx-toastr';
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrateComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
+import {ItemService} from "../services/item.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +11,16 @@ import {UserService} from "../services/user.service";
 export class DashboardComponent implements OnInit {
 
   userDetails;
+  items;
   constructor(private router:Router,
-              private service:UserService) { }
+              private service:UserService,
+              private serviceItem: ItemService) {
 
+  }
+
+  goToAddItem (){
+    this.router.navigate(['/item']);
+  }
   ngOnInit(): void {
     this.service.getUserProfile().subscribe(
       res=>{
@@ -22,10 +30,28 @@ export class DashboardComponent implements OnInit {
         console.log(err);
       }
     );
+
+    this.serviceItem.getAllItems().subscribe(
+      res=>{
+        this.items = res;
+        console.log(res);
+      },
+        err=>{
+        console.log(err);
+        }
+
+    );
+
+    let btn = document.getElementById("coolbutton");
+    if (btn) {
+      btn.addEventListener("click", (e: Event) => this.goToAddItem());
+    }
   }
 
   onLogout (){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
+
+
 }

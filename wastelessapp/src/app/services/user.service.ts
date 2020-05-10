@@ -27,7 +27,6 @@ export class UserService {
 
   register(user: User) {
     return this.http.post(`${this.conf.getApiURI()}/api/User/Register`, user,  httpOpt);
-    // console.log("ok");
   }
 
   login(formData) {

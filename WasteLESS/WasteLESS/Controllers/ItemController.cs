@@ -30,14 +30,16 @@ namespace WasteLESS.Controllers
             return _itemRepository.getItem(id);
         }
 
-        // POST: api/Item
+        // POST: api/Item/Add
         [HttpPost]
+        [Route("Add")]
         public ActionResult Post([FromBody] Item i)
         {
             if (i == null)
             {
                 return BadRequest("Item is null");
             }
+            
             _itemRepository.createItem(i);
             return NoContent();
         }

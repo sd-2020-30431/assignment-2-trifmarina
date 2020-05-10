@@ -45,28 +45,7 @@ export class RegistrateComponent implements OnInit {
 
     console.log("sub");
     this.loading = true;
-    // this.userService.register(this.registerForm.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {
-    //       // this.alertService.success('Registration successful', true);
-    //       this.router.navigate(['/home']);
-    //     },
-    //     error => {
-    //       this.loading = false;
-    //     });
 
-
-    //this.u = this.registerForm.value;
-
-    // this.u.Username='';
-    // this.u.Email='';
-    // this.u.Password='';
-    //
-    // this.u.Username = this.registerForm.controls['username'].value
-    // this.u.Email = this.registerForm.controls['email'].value
-    // this.u.Password = this.registerForm.controls['passwords'].value
-   // console.log(userData);
     this.us = this.registerForm.controls['username'].value.toString();
     this.em = this.registerForm.controls['email'].value.toString();
     this.pa = this.registerForm.controls['password'].value.toString();
